@@ -1,0 +1,2773 @@
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>USWDS v2 Color Compare Tool</title>
+  <meta name="description" content="A tool for finding colors in the USWDS v2 system">
+  <meta name="author" content="Brian Seek">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+<header>
+    <a href="#about" id="about-toggle" class="about-toggle" aria-label="Open about">
+        <span class="mark" aria-hidden="true">?</span>
+    </a>
+    <div id="about" class="about" aria-label="About">
+        <a href="#about-toggle" id="about-close" class="about-close" aria-label="Close main menu">
+            <span class="x" aria-hidden="true">x</span>
+        </a>
+        <div>
+            <h1>About this tool</h1>
+            <p>This tool was built to help match colors to colors that are defined within the USWDS design system. It was built by and is maintained by <a href="https://civicactions.com/">CivicActions</a>.</p>
+            <p>You can learn more about color usage in USWDS <a target="_blank" href="https://designsystem.digital.gov/design-tokens/color/overview/">here</a>.</p>
+            <p>The colors are pulled from USWDS using background utility classes. You can see which version of USWDS the css is compiled from at the top of the color comparison box. If this version is out of date or if you want to switch to a different version, you can <a href="https://github.com/CivicActions/uswds-color-tool" target="_blank">fork the repo</a> for this tool and change the USWDS version then re-compile.</p>
+            <h2>How to use this tool</h2>
+            <p>This tool can be used to browse the available colors from USWDS. Clicking on a swatch will show the color's name and hex value in the comparison box.</p>
+            <p>The dashed boxes containing the color families can be sorted by clicking and dragging.</p>
+            <p>If you have an existing color that you would like to match, enter it into the input within the comparison box. Once a valid color is entered, the color will fill the first box and the closest match from USWDS will fill the second box. From this point you can still click other swatches to compare your color with different USWDS colors.</p>
+            <p>The state of the tool is not saved, on reload your selections and sorts will be reverted back to their original states.</p>
+            <h2>Resources</h2>
+            <p>This tool is built with the following tools:</p>
+            <ul>
+                <li>U.S. Design System: <a href="https://github.com/uswds/uswds">https://github.com/uswds/uswds</a></li>
+                <li>Color matching: <a href="https://github.com/dtao/nearest-color">https://github.com/dtao/nearest-color</a></li>
+                <li>Drag sorting: <a href="https://github.com/SortableJS/Sortable">https://github.com/SortableJS/Sortable</a></li>
+            </ul>
+            <p>If you have any issues or requests feel free to create an issue or pull request here: <a href="https://github.com/CivicActions/uswds-color-tool">https://github.com/CivicActions/uswds-color-tool</a></p>
+        </div>
+    </div>
+    <a href="#about-toggle" class="backdrop" tabindex="-1" aria-hidden="true"></a>
+</header>
+<div class="color-compare">
+    <div class="version">Colors from <a href="https://github.com/uswds/uswds">USWDS - 2.7.1</a></div>
+    <div class="box">
+        <div class="original-color-select">
+            <div class="original-color">
+                <div class="info"></div>
+            </div>
+            <input class="pick" type="text" />
+            <span>Enter a color with # example: #333333</span>
+        </div>
+        <div class="compare-color-select">
+            <div class="compare-color">
+                <div class="info"></div>
+            </div>
+            <input disabled type="text" />
+            <span>Click on a color in the swatches.</span>
+        </div>
+    </div>
+</div>
+<main id="colorFamilies">
+    <div class="color-family" id="red-cool">
+        <h1>Red Cool</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-red-cool-5">
+            </div>
+            <div class="bg-red-cool-10">
+            </div>
+            <div class="bg-red-cool-20">
+            </div>
+            <div class="bg-red-cool-30">
+            </div>
+            <div class="bg-red-cool-40">
+            </div>
+            <div class="bg-red-cool-50">
+            </div>
+            <div class="bg-red-cool-60">
+            </div>
+            <div class="bg-red-cool-70">
+            </div>
+            <div class="bg-red-cool-80">
+            </div>
+            <div class="bg-red-cool-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-red-cool-5v">
+            </div>
+            <div class="bg-red-cool-10v">
+            </div>
+            <div class="bg-red-cool-20v">
+            </div>
+            <div class="bg-red-cool-30v">
+            </div>
+            <div class="bg-red-cool-40v">
+            </div>
+            <div class="bg-red-cool-50v">
+            </div>
+            <div class="bg-red-cool-60v">
+            </div>
+            <div class="bg-red-cool-70v">
+            </div>
+            <div class="bg-red-cool-80v">
+            </div>
+            <div class="bg-red-cool-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="red">
+        <h1>Red</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-red-5">
+            </div>
+            <div class="bg-red-10">
+            </div>
+            <div class="bg-red-20">
+            </div>
+            <div class="bg-red-30">
+            </div>
+            <div class="bg-red-40">
+            </div>
+            <div class="bg-red-50">
+            </div>
+            <div class="bg-red-60">
+            </div>
+            <div class="bg-red-70">
+            </div>
+            <div class="bg-red-80">
+            </div>
+            <div class="bg-red-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-red-5v">
+            </div>
+            <div class="bg-red-10v">
+            </div>
+            <div class="bg-red-20v">
+            </div>
+            <div class="bg-red-30v">
+            </div>
+            <div class="bg-red-40v">
+            </div>
+            <div class="bg-red-50v">
+            </div>
+            <div class="bg-red-60v">
+            </div>
+            <div class="bg-red-70v">
+            </div>
+            <div class="bg-red-80v">
+            </div>
+            <div class="bg-red-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="red-warm">
+        <h1>Red Warm</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-red-warm-5">
+            </div>
+            <div class="bg-red-warm-10">
+            </div>
+            <div class="bg-red-warm-20">
+            </div>
+            <div class="bg-red-warm-30">
+            </div>
+            <div class="bg-red-warm-40">
+            </div>
+            <div class="bg-red-warm-50">
+            </div>
+            <div class="bg-red-warm-60">
+            </div>
+            <div class="bg-red-warm-70">
+            </div>
+            <div class="bg-red-warm-80">
+            </div>
+            <div class="bg-red-warm-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-red-warm-5v">
+            </div>
+            <div class="bg-red-warm-10v">
+            </div>
+            <div class="bg-red-warm-20v">
+            </div>
+            <div class="bg-red-warm-30v">
+            </div>
+            <div class="bg-red-warm-40v">
+            </div>
+            <div class="bg-red-warm-50v">
+            </div>
+            <div class="bg-red-warm-60v">
+            </div>
+            <div class="bg-red-warm-70v">
+            </div>
+            <div class="bg-red-warm-80v">
+            </div>
+            <div class="bg-red-warm-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="orange-warm">
+        <h1>Orange Warm</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-orange-warm-5">
+            </div>
+            <div class="bg-orange-warm-10">
+            </div>
+            <div class="bg-orange-warm-20">
+            </div>
+            <div class="bg-orange-warm-30">
+            </div>
+            <div class="bg-orange-warm-40">
+            </div>
+            <div class="bg-orange-warm-50">
+            </div>
+            <div class="bg-orange-warm-60">
+            </div>
+            <div class="bg-orange-warm-70">
+            </div>
+            <div class="bg-orange-warm-80">
+            </div>
+            <div class="bg-orange-warm-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-orange-warm-5v">
+            </div>
+            <div class="bg-orange-warm-10v">
+            </div>
+            <div class="bg-orange-warm-20v">
+            </div>
+            <div class="bg-orange-warm-30v">
+            </div>
+            <div class="bg-orange-warm-40v">
+            </div>
+            <div class="bg-orange-warm-50v">
+            </div>
+            <div class="bg-orange-warm-60v">
+            </div>
+            <div class="bg-orange-warm-70v">
+            </div>
+            <div class="bg-orange-warm-80v">
+            </div>
+            <div class="bg-orange-warm-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="orange">
+        <h1>Orange</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-orange-5">
+            </div>
+            <div class="bg-orange-10">
+            </div>
+            <div class="bg-orange-20">
+            </div>
+            <div class="bg-orange-30">
+            </div>
+            <div class="bg-orange-40">
+            </div>
+            <div class="bg-orange-50">
+            </div>
+            <div class="bg-orange-60">
+            </div>
+            <div class="bg-orange-70">
+            </div>
+            <div class="bg-orange-80">
+            </div>
+            <div class="bg-orange-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-orange-5v">
+            </div>
+            <div class="bg-orange-10v">
+            </div>
+            <div class="bg-orange-20v">
+            </div>
+            <div class="bg-orange-30v">
+            </div>
+            <div class="bg-orange-40v">
+            </div>
+            <div class="bg-orange-50v">
+            </div>
+            <div class="bg-orange-60v">
+            </div>
+            <div class="bg-orange-70v">
+            </div>
+            <div class="bg-orange-80v">
+            </div>
+            <div class="bg-orange-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="gold">
+        <h1>Gold</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-gold-5">
+            </div>
+            <div class="bg-gold-10">
+            </div>
+            <div class="bg-gold-20">
+            </div>
+            <div class="bg-gold-30">
+            </div>
+            <div class="bg-gold-40">
+            </div>
+            <div class="bg-gold-50">
+            </div>
+            <div class="bg-gold-60">
+            </div>
+            <div class="bg-gold-70">
+            </div>
+            <div class="bg-gold-80">
+            </div>
+            <div class="bg-gold-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-gold-5v">
+            </div>
+            <div class="bg-gold-10v">
+            </div>
+            <div class="bg-gold-20v">
+            </div>
+            <div class="bg-gold-30v">
+            </div>
+            <div class="bg-gold-40v">
+            </div>
+            <div class="bg-gold-50v">
+            </div>
+            <div class="bg-gold-60v">
+            </div>
+            <div class="bg-gold-70v">
+            </div>
+            <div class="bg-gold-80v">
+            </div>
+            <div class="bg-gold-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="yellow">
+        <h1>Yellow</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-yellow-5">
+            </div>
+            <div class="bg-yellow-10">
+            </div>
+            <div class="bg-yellow-20">
+            </div>
+            <div class="bg-yellow-30">
+            </div>
+            <div class="bg-yellow-40">
+            </div>
+            <div class="bg-yellow-50">
+            </div>
+            <div class="bg-yellow-60">
+            </div>
+            <div class="bg-yellow-70">
+            </div>
+            <div class="bg-yellow-80">
+            </div>
+            <div class="bg-yellow-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-yellow-5v">
+            </div>
+            <div class="bg-yellow-10v">
+            </div>
+            <div class="bg-yellow-20v">
+            </div>
+            <div class="bg-yellow-30v">
+            </div>
+            <div class="bg-yellow-40v">
+            </div>
+            <div class="bg-yellow-50v">
+            </div>
+            <div class="bg-yellow-60v">
+            </div>
+            <div class="bg-yellow-70v">
+            </div>
+            <div class="bg-yellow-80v">
+            </div>
+            <div class="bg-yellow-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="green-warm">
+        <h1>Green Warm</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-green-warm-5">
+            </div>
+            <div class="bg-green-warm-10">
+            </div>
+            <div class="bg-green-warm-20">
+            </div>
+            <div class="bg-green-warm-30">
+            </div>
+            <div class="bg-green-warm-40">
+            </div>
+            <div class="bg-green-warm-50">
+            </div>
+            <div class="bg-green-warm-60">
+            </div>
+            <div class="bg-green-warm-70">
+            </div>
+            <div class="bg-green-warm-80">
+            </div>
+            <div class="bg-green-warm-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-green-warm-5v">
+            </div>
+            <div class="bg-green-warm-10v">
+            </div>
+            <div class="bg-green-warm-20v">
+            </div>
+            <div class="bg-green-warm-30v">
+            </div>
+            <div class="bg-green-warm-40v">
+            </div>
+            <div class="bg-green-warm-50v">
+            </div>
+            <div class="bg-green-warm-60v">
+            </div>
+            <div class="bg-green-warm-70v">
+            </div>
+            <div class="bg-green-warm-80v">
+            </div>
+            <div class="bg-green-warm-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="green">
+        <h1>Green</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-green-5">
+            </div>
+            <div class="bg-green-10">
+            </div>
+            <div class="bg-green-20">
+            </div>
+            <div class="bg-green-30">
+            </div>
+            <div class="bg-green-40">
+            </div>
+            <div class="bg-green-50">
+            </div>
+            <div class="bg-green-60">
+            </div>
+            <div class="bg-green-70">
+            </div>
+            <div class="bg-green-80">
+            </div>
+            <div class="bg-green-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-green-5v">
+            </div>
+            <div class="bg-green-10v">
+            </div>
+            <div class="bg-green-20v">
+            </div>
+            <div class="bg-green-30v">
+            </div>
+            <div class="bg-green-40v">
+            </div>
+            <div class="bg-green-50v">
+            </div>
+            <div class="bg-green-60v">
+            </div>
+            <div class="bg-green-70v">
+            </div>
+            <div class="bg-green-80v">
+            </div>
+            <div class="bg-green-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="green-cool">
+        <h1>Green Cool</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-green-cool-5">
+            </div>
+            <div class="bg-green-cool-10">
+            </div>
+            <div class="bg-green-cool-20">
+            </div>
+            <div class="bg-green-cool-30">
+            </div>
+            <div class="bg-green-cool-40">
+            </div>
+            <div class="bg-green-cool-50">
+            </div>
+            <div class="bg-green-cool-60">
+            </div>
+            <div class="bg-green-cool-70">
+            </div>
+            <div class="bg-green-cool-80">
+            </div>
+            <div class="bg-green-cool-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-green-cool-5v">
+            </div>
+            <div class="bg-green-cool-10v">
+            </div>
+            <div class="bg-green-cool-20v">
+            </div>
+            <div class="bg-green-cool-30v">
+            </div>
+            <div class="bg-green-cool-40v">
+            </div>
+            <div class="bg-green-cool-50v">
+            </div>
+            <div class="bg-green-cool-60v">
+            </div>
+            <div class="bg-green-cool-70v">
+            </div>
+            <div class="bg-green-cool-80v">
+            </div>
+            <div class="bg-green-cool-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="mint">
+        <h1>Mint</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-mint-5">
+            </div>
+            <div class="bg-mint-10">
+            </div>
+            <div class="bg-mint-20">
+            </div>
+            <div class="bg-mint-30">
+            </div>
+            <div class="bg-mint-40">
+            </div>
+            <div class="bg-mint-50">
+            </div>
+            <div class="bg-mint-60">
+            </div>
+            <div class="bg-mint-70">
+            </div>
+            <div class="bg-mint-80">
+            </div>
+            <div class="bg-mint-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-mint-5v">
+            </div>
+            <div class="bg-mint-10v">
+            </div>
+            <div class="bg-mint-20v">
+            </div>
+            <div class="bg-mint-30v">
+            </div>
+            <div class="bg-mint-40v">
+            </div>
+            <div class="bg-mint-50v">
+            </div>
+            <div class="bg-mint-60v">
+            </div>
+            <div class="bg-mint-70v">
+            </div>
+            <div class="bg-mint-80v">
+            </div>
+            <div class="bg-mint-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="mint-cool">
+        <h1>Mint Cool</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-mint-cool-5">
+            </div>
+            <div class="bg-mint-cool-10">
+            </div>
+            <div class="bg-mint-cool-20">
+            </div>
+            <div class="bg-mint-cool-30">
+            </div>
+            <div class="bg-mint-cool-40">
+            </div>
+            <div class="bg-mint-cool-50">
+            </div>
+            <div class="bg-mint-cool-60">
+            </div>
+            <div class="bg-mint-cool-70">
+            </div>
+            <div class="bg-mint-cool-80">
+            </div>
+            <div class="bg-mint-cool-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-mint-cool-5v">
+            </div>
+            <div class="bg-mint-cool-10v">
+            </div>
+            <div class="bg-mint-cool-20v">
+            </div>
+            <div class="bg-mint-cool-30v">
+            </div>
+            <div class="bg-mint-cool-40v">
+            </div>
+            <div class="bg-mint-cool-50v">
+            </div>
+            <div class="bg-mint-cool-60v">
+            </div>
+            <div class="bg-mint-cool-70v">
+            </div>
+            <div class="bg-mint-cool-80v">
+            </div>
+            <div class="bg-mint-cool-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="cyan">
+        <h1>Cyan</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-cyan-5">
+            </div>
+            <div class="bg-cyan-10">
+            </div>
+            <div class="bg-cyan-20">
+            </div>
+            <div class="bg-cyan-30">
+            </div>
+            <div class="bg-cyan-40">
+            </div>
+            <div class="bg-cyan-50">
+            </div>
+            <div class="bg-cyan-60">
+            </div>
+            <div class="bg-cyan-70">
+            </div>
+            <div class="bg-cyan-80">
+            </div>
+            <div class="bg-cyan-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-cyan-5v">
+            </div>
+            <div class="bg-cyan-10v">
+            </div>
+            <div class="bg-cyan-20v">
+            </div>
+            <div class="bg-cyan-30v">
+            </div>
+            <div class="bg-cyan-40v">
+            </div>
+            <div class="bg-cyan-50v">
+            </div>
+            <div class="bg-cyan-60v">
+            </div>
+            <div class="bg-cyan-70v">
+            </div>
+            <div class="bg-cyan-80v">
+            </div>
+            <div class="bg-cyan-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="blue-cool">
+        <h1>Blue Cool</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-blue-cool-5">
+            </div>
+            <div class="bg-blue-cool-10">
+            </div>
+            <div class="bg-blue-cool-20">
+            </div>
+            <div class="bg-blue-cool-30">
+            </div>
+            <div class="bg-blue-cool-40">
+            </div>
+            <div class="bg-blue-cool-50">
+            </div>
+            <div class="bg-blue-cool-60">
+            </div>
+            <div class="bg-blue-cool-70">
+            </div>
+            <div class="bg-blue-cool-80">
+            </div>
+            <div class="bg-blue-cool-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-blue-cool-5v">
+            </div>
+            <div class="bg-blue-cool-10v">
+            </div>
+            <div class="bg-blue-cool-20v">
+            </div>
+            <div class="bg-blue-cool-30v">
+            </div>
+            <div class="bg-blue-cool-40v">
+            </div>
+            <div class="bg-blue-cool-50v">
+            </div>
+            <div class="bg-blue-cool-60v">
+            </div>
+            <div class="bg-blue-cool-70v">
+            </div>
+            <div class="bg-blue-cool-80v">
+            </div>
+            <div class="bg-blue-cool-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="blue">
+        <h1>Blue</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-blue-5">
+            </div>
+            <div class="bg-blue-10">
+            </div>
+            <div class="bg-blue-20">
+            </div>
+            <div class="bg-blue-30">
+            </div>
+            <div class="bg-blue-40">
+            </div>
+            <div class="bg-blue-50">
+            </div>
+            <div class="bg-blue-60">
+            </div>
+            <div class="bg-blue-70">
+            </div>
+            <div class="bg-blue-80">
+            </div>
+            <div class="bg-blue-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-blue-5v">
+            </div>
+            <div class="bg-blue-10v">
+            </div>
+            <div class="bg-blue-20v">
+            </div>
+            <div class="bg-blue-30v">
+            </div>
+            <div class="bg-blue-40v">
+            </div>
+            <div class="bg-blue-50v">
+            </div>
+            <div class="bg-blue-60v">
+            </div>
+            <div class="bg-blue-70v">
+            </div>
+            <div class="bg-blue-80v">
+            </div>
+            <div class="bg-blue-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="blue-warm">
+        <h1>Blue Warm</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-blue-warm-5">
+            </div>
+            <div class="bg-blue-warm-10">
+            </div>
+            <div class="bg-blue-warm-20">
+            </div>
+            <div class="bg-blue-warm-30">
+            </div>
+            <div class="bg-blue-warm-40">
+            </div>
+            <div class="bg-blue-warm-50">
+            </div>
+            <div class="bg-blue-warm-60">
+            </div>
+            <div class="bg-blue-warm-70">
+            </div>
+            <div class="bg-blue-warm-80">
+            </div>
+            <div class="bg-blue-warm-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-blue-warm-5v">
+            </div>
+            <div class="bg-blue-warm-10v">
+            </div>
+            <div class="bg-blue-warm-20v">
+            </div>
+            <div class="bg-blue-warm-30v">
+            </div>
+            <div class="bg-blue-warm-40v">
+            </div>
+            <div class="bg-blue-warm-50v">
+            </div>
+            <div class="bg-blue-warm-60v">
+            </div>
+            <div class="bg-blue-warm-70v">
+            </div>
+            <div class="bg-blue-warm-80v">
+            </div>
+            <div class="bg-blue-warm-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="indigo-cool">
+        <h1>Indigo Cool</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-indigo-cool-5">
+            </div>
+            <div class="bg-indigo-cool-10">
+            </div>
+            <div class="bg-indigo-cool-20">
+            </div>
+            <div class="bg-indigo-cool-30">
+            </div>
+            <div class="bg-indigo-cool-40">
+            </div>
+            <div class="bg-indigo-cool-50">
+            </div>
+            <div class="bg-indigo-cool-60">
+            </div>
+            <div class="bg-indigo-cool-70">
+            </div>
+            <div class="bg-indigo-cool-80">
+            </div>
+            <div class="bg-indigo-cool-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-indigo-cool-5v">
+            </div>
+            <div class="bg-indigo-cool-10v">
+            </div>
+            <div class="bg-indigo-cool-20v">
+            </div>
+            <div class="bg-indigo-cool-30v">
+            </div>
+            <div class="bg-indigo-cool-40v">
+            </div>
+            <div class="bg-indigo-cool-50v">
+            </div>
+            <div class="bg-indigo-cool-60v">
+            </div>
+            <div class="bg-indigo-cool-70v">
+            </div>
+            <div class="bg-indigo-cool-80v">
+            </div>
+            <div class="bg-indigo-cool-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="indigo">
+        <h1>Indigo</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-indigo-5">
+            </div>
+            <div class="bg-indigo-10">
+            </div>
+            <div class="bg-indigo-20">
+            </div>
+            <div class="bg-indigo-30">
+            </div>
+            <div class="bg-indigo-40">
+            </div>
+            <div class="bg-indigo-50">
+            </div>
+            <div class="bg-indigo-60">
+            </div>
+            <div class="bg-indigo-70">
+            </div>
+            <div class="bg-indigo-80">
+            </div>
+            <div class="bg-indigo-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-indigo-5v">
+            </div>
+            <div class="bg-indigo-10v">
+            </div>
+            <div class="bg-indigo-20v">
+            </div>
+            <div class="bg-indigo-30v">
+            </div>
+            <div class="bg-indigo-40v">
+            </div>
+            <div class="bg-indigo-50v">
+            </div>
+            <div class="bg-indigo-60v">
+            </div>
+            <div class="bg-indigo-70v">
+            </div>
+            <div class="bg-indigo-80v">
+            </div>
+            <div class="bg-indigo-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="indigo-warm">
+        <h1>Indigo Warm</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-indigo-warm-5">
+            </div>
+            <div class="bg-indigo-warm-10">
+            </div>
+            <div class="bg-indigo-warm-20">
+            </div>
+            <div class="bg-indigo-warm-30">
+            </div>
+            <div class="bg-indigo-warm-40">
+            </div>
+            <div class="bg-indigo-warm-50">
+            </div>
+            <div class="bg-indigo-warm-60">
+            </div>
+            <div class="bg-indigo-warm-70">
+            </div>
+            <div class="bg-indigo-warm-80">
+            </div>
+            <div class="bg-indigo-warm-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-indigo-warm-5v">
+            </div>
+            <div class="bg-indigo-warm-10v">
+            </div>
+            <div class="bg-indigo-warm-20v">
+            </div>
+            <div class="bg-indigo-warm-30v">
+            </div>
+            <div class="bg-indigo-warm-40v">
+            </div>
+            <div class="bg-indigo-warm-50v">
+            </div>
+            <div class="bg-indigo-warm-60v">
+            </div>
+            <div class="bg-indigo-warm-70v">
+            </div>
+            <div class="bg-indigo-warm-80v">
+            </div>
+            <div class="bg-indigo-warm-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="violet">
+        <h1>Violet</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-violet-5">
+            </div>
+            <div class="bg-violet-10">
+            </div>
+            <div class="bg-violet-20">
+            </div>
+            <div class="bg-violet-30">
+            </div>
+            <div class="bg-violet-40">
+            </div>
+            <div class="bg-violet-50">
+            </div>
+            <div class="bg-violet-60">
+            </div>
+            <div class="bg-violet-70">
+            </div>
+            <div class="bg-violet-80">
+            </div>
+            <div class="bg-violet-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-violet-5v">
+            </div>
+            <div class="bg-violet-10v">
+            </div>
+            <div class="bg-violet-20v">
+            </div>
+            <div class="bg-violet-30v">
+            </div>
+            <div class="bg-violet-40v">
+            </div>
+            <div class="bg-violet-50v">
+            </div>
+            <div class="bg-violet-60v">
+            </div>
+            <div class="bg-violet-70v">
+            </div>
+            <div class="bg-violet-80v">
+            </div>
+            <div class="bg-violet-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="violet-warm">
+        <h1>Violet Warm</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-violet-warm-5">
+            </div>
+            <div class="bg-violet-warm-10">
+            </div>
+            <div class="bg-violet-warm-20">
+            </div>
+            <div class="bg-violet-warm-30">
+            </div>
+            <div class="bg-violet-warm-40">
+            </div>
+            <div class="bg-violet-warm-50">
+            </div>
+            <div class="bg-violet-warm-60">
+            </div>
+            <div class="bg-violet-warm-70">
+            </div>
+            <div class="bg-violet-warm-80">
+            </div>
+            <div class="bg-violet-warm-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-violet-warm-5v">
+            </div>
+            <div class="bg-violet-warm-10v">
+            </div>
+            <div class="bg-violet-warm-20v">
+            </div>
+            <div class="bg-violet-warm-30v">
+            </div>
+            <div class="bg-violet-warm-40v">
+            </div>
+            <div class="bg-violet-warm-50v">
+            </div>
+            <div class="bg-violet-warm-60v">
+            </div>
+            <div class="bg-violet-warm-70v">
+            </div>
+            <div class="bg-violet-warm-80v">
+            </div>
+            <div class="bg-violet-warm-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="magenta">
+        <h1>Magenta</h1>
+        <div class="row number">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-magenta-5">
+            </div>
+            <div class="bg-magenta-10">
+            </div>
+            <div class="bg-magenta-20">
+            </div>
+            <div class="bg-magenta-30">
+            </div>
+            <div class="bg-magenta-40">
+            </div>
+            <div class="bg-magenta-50">
+            </div>
+            <div class="bg-magenta-60">
+            </div>
+            <div class="bg-magenta-70">
+            </div>
+            <div class="bg-magenta-80">
+            </div>
+            <div class="bg-magenta-90">
+            </div>
+        </div>
+        <div class="row number v">
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-magenta-5v">
+            </div>
+            <div class="bg-magenta-10v">
+            </div>
+            <div class="bg-magenta-20v">
+            </div>
+            <div class="bg-magenta-30v">
+            </div>
+            <div class="bg-magenta-40v">
+            </div>
+            <div class="bg-magenta-50v">
+            </div>
+            <div class="bg-magenta-60v">
+            </div>
+            <div class="bg-magenta-70v">
+            </div>
+            <div class="bg-magenta-80v">
+            </div>
+            <div class="bg-magenta-90v">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="gray">
+        <h1>Gray</h1>
+        <div class="row number">
+            <div>
+                1
+            </div>
+            <div>
+                2
+            </div>
+            <div>
+                3
+            </div>
+            <div>
+                4
+            </div>
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-gray-1">
+            </div>
+            <div class="bg-gray-2">
+            </div>
+            <div class="bg-gray-3">
+            </div>
+            <div class="bg-gray-4">
+            </div>
+            <div class="bg-gray-5">
+            </div>
+            <div class="bg-gray-10">
+            </div>
+            <div class="bg-gray-20">
+            </div>
+            <div class="bg-gray-30">
+            </div>
+            <div class="bg-gray-40">
+            </div>
+            <div class="bg-gray-50">
+            </div>
+            <div class="bg-gray-60">
+            </div>
+            <div class="bg-gray-70">
+            </div>
+            <div class="bg-gray-80">
+            </div>
+            <div class="bg-gray-90">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="gray-cool">
+        <h1>Gray Cool</h1>
+        <div class="row number">
+            <div>
+                1
+            </div>
+            <div>
+                2
+            </div>
+            <div>
+                3
+            </div>
+            <div>
+                4
+            </div>
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-gray-cool-1">
+            </div>
+            <div class="bg-gray-cool-2">
+            </div>
+            <div class="bg-gray-cool-3">
+            </div>
+            <div class="bg-gray-cool-4">
+            </div>
+            <div class="bg-gray-cool-5">
+            </div>
+            <div class="bg-gray-cool-10">
+            </div>
+            <div class="bg-gray-cool-20">
+            </div>
+            <div class="bg-gray-cool-30">
+            </div>
+            <div class="bg-gray-cool-40">
+            </div>
+            <div class="bg-gray-cool-50">
+            </div>
+            <div class="bg-gray-cool-60">
+            </div>
+            <div class="bg-gray-cool-70">
+            </div>
+            <div class="bg-gray-cool-80">
+            </div>
+            <div class="bg-gray-cool-90">
+            </div>
+        </div>
+    </div>
+
+    <div class="color-family" id="gray-warm">
+        <h1>Gray Warm</h1>
+        <div class="row number">
+            <div>
+                1
+            </div>
+            <div>
+                2
+            </div>
+            <div>
+                3
+            </div>
+            <div>
+                4
+            </div>
+            <div>
+                5
+            </div>
+            <div>
+                10
+            </div>
+            <div>
+                20
+            </div>
+            <div>
+                30
+            </div>
+            <div>
+                40
+            </div>
+            <div>
+                50
+            </div>
+            <div>
+                60
+            </div>
+            <div>
+                70
+            </div>
+            <div>
+                80
+            </div>
+            <div>
+                90
+            </div>
+        </div>
+        <div class="row colors">
+            <div class="bg-gray-warm-1">
+            </div>
+            <div class="bg-gray-warm-2">
+            </div>
+            <div class="bg-gray-warm-3">
+            </div>
+            <div class="bg-gray-warm-4">
+            </div>
+            <div class="bg-gray-warm-5">
+            </div>
+            <div class="bg-gray-warm-10">
+            </div>
+            <div class="bg-gray-warm-20">
+            </div>
+            <div class="bg-gray-warm-30">
+            </div>
+            <div class="bg-gray-warm-40">
+            </div>
+            <div class="bg-gray-warm-50">
+            </div>
+            <div class="bg-gray-warm-60">
+            </div>
+            <div class="bg-gray-warm-70">
+            </div>
+            <div class="bg-gray-warm-80">
+            </div>
+            <div class="bg-gray-warm-90">
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    Powered by <a href="https://www.civicactions.com">CivicActions</a>
+</footer>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/nearest-color@latest/nearestColor.js"></script>
+<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+<script src="./js/color.js"></script>
+
+</body>
+</html>

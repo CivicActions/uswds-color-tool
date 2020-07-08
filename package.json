@@ -1,0 +1,21 @@
+{
+  "name": "uswds-color-picker",
+  "version": "1.0.0",
+  "description": "a color picker for USWDS v2",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^9.8.4",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "postcss-csso": "^4.0.0",
+    "sass": "^1.26.9",
+    "uswds": "^2.7.1",
+    "uswds-gulp": "github:uswds/uswds-gulp"
+  },
+  "author": "Brian Seek",
+  "license": ""
+}
